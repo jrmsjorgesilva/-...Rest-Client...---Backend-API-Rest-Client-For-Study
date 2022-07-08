@@ -27,20 +27,20 @@ async function createPerson(req, res) {
   };
 
   //   validations
-  if (!firstName)
-    return res
-      .status(422)
-      .json({ error: "You need to provide the firstname!" });
-  if (!lastName)
-    return res.status(422).json({ error: "You need to provide the lastname!" });
-  if (!age)
-    return res.status(422).json({ error: "You need to provide the age!" });
-  if (!occupation)
-    return res
-      .status(422)
-      .json({ error: "You need to provide the occupation!" });
-  if (!approved)
-    return res.status(422).json({ error: "You need to provide the status!" });
+  //   if (!firstName)
+  //     return res
+  //       .status(422)
+  //       .json({ error: "You need to provide the firstname!" });
+  //   if (!lastName)
+  //     return res.status(422).json({ error: "You need to provide the lastname!" });
+  //   if (!age)
+  //     return res.status(422).json({ error: "You need to provide the age!" });
+  //   if (!occupation)
+  //     return res
+  //       .status(422)
+  //       .json({ error: "You need to provide the occupation!" });
+  //   if (!approved)
+  //     return res.status(422).json({ error: "You need to provide the status!" });
 
   try {
     await Person.create(person);
