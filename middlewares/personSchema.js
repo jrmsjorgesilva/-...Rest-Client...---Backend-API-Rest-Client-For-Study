@@ -10,7 +10,6 @@ const personSchema = yup.object({
   salary: yup.number().positive(),
   approved: yup.boolean().required(),
   minority: yup.boolean(),
-  website: yup.string().url(),
 });
 
 module.exports = personSchema;
