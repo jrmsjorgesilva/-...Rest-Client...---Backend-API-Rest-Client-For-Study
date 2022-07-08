@@ -164,9 +164,15 @@ router.patch("/:id", async (req, res) => {
 });
 
 // endpoints - DELETE routes
-router.delete("/", async (req, res) => {
+router.delete("/:id", async (req, res) => {
   const id = req.params.id;
   try {
+    const person = await Person.findOne({ _id: id });
+    if (!person)
+      return res
+        .status(422)
+        .json({ error: "This ID does not exist in the database" });
+
     await Person.deleteOne({ _id: id });
     res.status(200).json({ message: `Person deleted sucessfully` });
   } catch (errors) {
