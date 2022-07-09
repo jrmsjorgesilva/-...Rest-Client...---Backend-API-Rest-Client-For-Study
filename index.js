@@ -5,7 +5,7 @@ const cors = require("cors");
 const axios = require("axios");
 const mongooseConnect = require("./database/mongo.js");
 const personsRoute = require("./routes/personsRoute");
-const indexView = require('../views/js/index');
+const indexView = require('./views/js/index');
 
 // server
 const server = express();
