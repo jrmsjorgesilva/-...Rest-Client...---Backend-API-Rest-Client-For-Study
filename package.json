@@ -2,7 +2,7 @@
   "name": "boilerplaterestapi",
   "version": "1.0.0",
   "description": "node js rest api boilerplate",
-  "main": "index.js",
+  "main": "server/index.js",
   "scripts": {
     "dev": "nodemon index.js",
     "test": "jest --watchAll"

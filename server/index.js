@@ -14,9 +14,9 @@ server.use(express.json());
 const PORT = process.env.PORT || 3000;
 
 // API routes
-server.all("*", (req, res) => {
-  console.log("authentication");
-});
+// server.all("*", (req, res) => {
+//   console.log("authentication");
+// });
 
 server.use("/persons", personsRoutes);
 
