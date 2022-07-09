@@ -4,23 +4,36 @@ const path = require('path');
 const cors = require("cors");
 const axios = require("axios");
 const mongooseConnect = require("./database/mongo.js");
-const personsRoutes = require("./routes/personsRoute");
+const personsRoute = require("./routes/personsRoute");
 
 // server
 const server = express();
+const PORT = process.env.PORT || 3000;
+
 // server uses
 server.use(cors());
 server.use(express.json());
-const PORT = process.env.PORT || 3000;
+
+// use
+server.use("/persons", personsRoute);
+
+server.use(express.static(path.join(__dirname, './index.html')));
 
 // API routes
 // server.all("*", (req, res) => {
 //   console.log("authentication");
 // });
 
-server.use("/persons", personsRoutes);
+// server.get('/', (req, res) => {
+//     res.render('oi eu aqui');
+// });
 
-server.use(express.static(path.join(__dirname, './index.html')));
+// Views
+server.set('view engine', 'ejs');
+
+server.get('/', (req, res) => {
+    res.render('index');
+})
 
 mongooseConnect(server);
 server.listen(PORT, () => console.log(`server is running on the port ${PORT}`));
