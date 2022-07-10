@@ -7,7 +7,7 @@ const validations = (schema) => async (req, res, next) => {
     await schema.validate(body);
     // res.status(201).json({ message: "validation OK" });
     next();
-    return next();
+    // return next();
   } catch (errors) {
     console.log("Errors ", errors);
     return res.status(422).json({ errors: errors });

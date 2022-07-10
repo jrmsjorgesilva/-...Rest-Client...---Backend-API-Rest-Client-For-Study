@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 
-const Photos = mongoose.model({
-  albumId: number,
-  id: number,
-  title: string,
-  url: string,
-  thumbnailUrl: string,
+const Photos = mongoose.model("Photos", {
+  albumId: Number,
+  id: Number,
+  title: String,
+  url: String,
+  thumbnailUrl: String,
 });
 
 module.exports = Photos;

@@ -5,8 +5,8 @@ const cors = require("cors");
 const axios = require("axios");
 const mongooseConnect = require("./database/mongo.js");
 const personsRoute = require("./routes/personsRoute");
-const albumsRoute = require("./routes/albumsRoute");
-const indexView = require("./views/js/index");
+const albumsRoute = require('../routes/albumsRoute');
+const indexView = require('../views/js/index');
 
 // server
 const server = express();
@@ -35,7 +35,7 @@ server.use(express.static(path.join(__dirname, "./index.html")));
 server.set("view engine", "ejs");
 
 server.get("/", (req, res) => {
-  //   indexView
+//   indexView
   res.render("index", indexView);
 });
 

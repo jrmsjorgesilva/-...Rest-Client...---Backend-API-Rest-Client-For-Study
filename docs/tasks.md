@@ -7,4 +7,5 @@
 ## - [] 404 not found page
 ## - [] Encryption and security
 ## - [] Authentication
+## - [] Verify if the data already exists in the database on the POST method
 ## - [] 

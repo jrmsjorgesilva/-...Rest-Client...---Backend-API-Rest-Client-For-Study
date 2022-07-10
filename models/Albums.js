@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
 
-const Albums = mongoose.model({
-  userId: number,
-  id: number,
-  title: string,
+const Albums = mongoose.model("Album", {
+  userId: Number,
+  id: Number,
+  title: String,
 });
 
 module.exports = Albums;

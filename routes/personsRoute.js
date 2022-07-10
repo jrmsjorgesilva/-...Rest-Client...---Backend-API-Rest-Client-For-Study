@@ -1,6 +1,4 @@
 const router = require("express").Router();
-// models
-const Person = require("../models/Person");
 // controllers
 const createPerson = require("../controllers/createPerson");
 const getPerson = require("../controllers/getPerson");

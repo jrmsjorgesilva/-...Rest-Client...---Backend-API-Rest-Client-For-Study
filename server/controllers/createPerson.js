@@ -47,7 +47,7 @@ async function createPerson(req, res) {
     res.status(201).json({ message: "person inserted sucessfully" });
   } catch (error) {
     // todo: criar arquivo de log da requisição
-    res.status(500).json({ message: 'errar é humano, mas puta merda'  });
+    res.status(500).json({ error: error });
   }
 }
 
