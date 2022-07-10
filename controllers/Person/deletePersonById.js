@@ -1,4 +1,4 @@
-const Person = require("../models/Person");
+const Person = require("../../models/Person");
 
 async function deletePersonById(req, res) {
   const id = req.params.id;

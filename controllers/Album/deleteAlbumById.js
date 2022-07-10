@@ -1,4 +1,4 @@
-const Albums = require("../models/Albums");
+const Albums = require("../../models/Albums");
 
 async function deleteAlbumById(req, res) {
   try {

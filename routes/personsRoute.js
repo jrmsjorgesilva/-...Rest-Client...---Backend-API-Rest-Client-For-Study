@@ -1,11 +1,11 @@
 const router = require("express").Router();
 // controllers
-const createPerson = require("../controllers/createPerson");
-const getPerson = require("../controllers/getPerson");
-const getPersonById = require("../controllers/getPersonById");
-const putPersonById = require("../controllers/putPersonById");
-const patchPersonById = require("../controllers/patchPersonById");
-const deletePersonById = require("../controllers/deletePersonById");
+const createPerson = require("../controllers/Person/createPerson");
+const getPerson = require("../controllers/Person/getPerson");
+const getPersonById = require("../controllers/Person/getPersonById");
+const putPersonById = require("../controllers/Person/putPersonById");
+const patchPersonById = require("../controllers/Person/patchPersonById");
+const deletePersonById = require("../controllers/Person/deletePersonById");
 // validation
 const validation = require("../middlewares/validations");
 const personSchema = require("../middlewares/personSchema");

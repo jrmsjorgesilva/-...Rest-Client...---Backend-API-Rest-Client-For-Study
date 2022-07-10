@@ -26,7 +26,7 @@ server.use("/posts", postsRoute);
 server.use("/comments", commentsRoute);
 server.use("/photos", photosRoute);
 
-server.use(express.static(path.join(__dirname, "./index.html")));
+// server.use(express.static(path.join(__dirname, "./index.html")));
 
 // API routes
 // server.all("*", (req, res) => {

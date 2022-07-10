@@ -1,11 +1,12 @@
 const router = require("express").Router();
-// controllers
+// models
 const Albums = require("../models/Albums");
-const createAlbum = require("../controllers/createAlbum");
-const getAlbum = require("../controllers/getAlbum");
-const getAlbumById = require("../controllers/getAlbumById");
-const patchAlbumById = require('../controllers/patchAlbumById');
-const deleteAlbumById = require('../controllers/deleteAlbumById');
+// controllers
+const createAlbum = require("../controllers/Album/createAlbum");
+const getAlbum = require("../controllers/Album/getAlbum");
+const getAlbumById = require("../controllers/Album/getAlbumById");
+const patchAlbumById = require('../controllers/Album/patchAlbumById');
+const deleteAlbumById = require('../controllers/Album/deleteAlbumById');
 
 router.post("/", createAlbum);
 
