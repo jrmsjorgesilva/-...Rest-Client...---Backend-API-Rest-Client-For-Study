@@ -1,23 +1,23 @@
 const router = require("express").Router();
 
 router.post("/", async (req, res) => {
-  // todo
+  res.send("some photos");
 });
 
 router.get("/", async (req, res) => {
-  // todo
+  res.send("some photos");
 });
 
 router.get("/:id", async (req, res) => {
-  // todo
+  res.send("some photos");
 });
 
 router.patch("/:id", async (req, res) => {
-  // todo
+  res.send("some photos");
 });
 
 router.delete("/:id", async (req, res) => {
-  // todo
+  res.send("some photos");
 });
 
 module.exports = router;

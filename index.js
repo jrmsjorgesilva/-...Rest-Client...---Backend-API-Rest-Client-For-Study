@@ -9,41 +9,32 @@ const albumsRoute = require("./routes/albumsRoute");
 const postsRoute = require("./routes/postsRoute");
 const commentsRoute = require("./routes/commentsRoute");
 const photosRoute = require("./routes/photosRoute");
+const notFoundRoute = require('./routes/404Route');
 const indexView = require("./views/js/index");
 
 // server
 const server = express();
 const PORT = process.env.PORT || 3000;
 
-// server uses
+// Server Uses
 server.use(cors());
 server.use(express.json());
 
-// use
+// Views
+server.set("view engine", "ejs");
+
+// indexView
+server.get("/", (req, res) => {
+  res.render("index", indexView);
+});
+
+// Use
 server.use("/persons", personsRoute);
 server.use("/albums", albumsRoute);
 server.use("/posts", postsRoute);
 server.use("/comments", commentsRoute);
 server.use("/photos", photosRoute);
-
-// server.use(express.static(path.join(__dirname, "./index.html")));
-
-// API routes
-// server.all("*", (req, res) => {
-//   console.log("authentication");
-// });
-
-// server.get('/', (req, res) => {
-//     res.render('oi eu aqui');
-// });
-
-// Views
-server.set("view engine", "ejs");
-
-server.get("/", (req, res) => {
-  //   indexView
-  res.render("index", indexView);
-});
+server.use('', notFoundRoute)
 
 mongooseConnect(server);
 server.listen(PORT, () => console.log(`server is running on the port ${PORT}`));
