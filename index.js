@@ -6,6 +6,9 @@ const axios = require("axios");
 const mongooseConnect = require("./database/mongo.js");
 const personsRoute = require("./routes/personsRoute");
 const albumsRoute = require("./routes/albumsRoute");
+const postsRoute = require("./routes/postsRoute");
+const commentsRoute = require("./routes/commentsRoute");
+const photosRoute = require("./routes/photosRoute");
 const indexView = require("./views/js/index");
 
 // server
@@ -19,6 +22,9 @@ server.use(express.json());
 // use
 server.use("/persons", personsRoute);
 server.use("/albums", albumsRoute);
+server.use("/posts", postsRoute);
+server.use("/comments", commentsRoute);
+server.use("/photos", photosRoute);
 
 server.use(express.static(path.join(__dirname, "./index.html")));
 
