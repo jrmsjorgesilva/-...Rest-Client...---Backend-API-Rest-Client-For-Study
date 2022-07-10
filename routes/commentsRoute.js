@@ -1,48 +1,21 @@
 const router = require("express").Router();
-const Comments = require('../models/Comments');
+// models
+const Comments = require("../models/Comments");
+// contollers
+const createComment = require('../controllers/Comment/createComment')
+const getComment = require('../controllers/Comment/getComment');
+const getCommentById = require('../controllers/Comment/getCommentById');
+const patchCommentById = require('../controllers/Comment/patchCommentById');
+const deleteCommentById = require('../controllers/Comment/deleteCommentById');
 
-router.post("/", async (req, res) => {
-  // todo
-  const { postId, id, name, email, body } = req.body;
+router.post("/", createComment);
 
-  const commentToPost = {
-    postId,
-    id,
-    name,
-    email,
-    body,
-  };
+router.get("/", getComment);
 
-  try {
-    await Comments.create(commentToPost);
-    return res.status(201).json(commentToPost);
-  } catch (error) {
-    res.status(422).json({ error: error });
-    throw new Error("Error ", error);
-  }
-});
+router.get("/:id", getCommentById);
 
-router.get("/", async (req, res) => {
-  // todo
-  try {
-    const commentsReceived = await Comments.find();
-    return res.status(201).json(commentsReceived);
-  } catch (error) {
-    res.status(422).json({ error: error });
-    throw new Error("Error ", error);
-  }
-});
+router.patch("/:id", patchCommentById);
 
-router.get("/:id", async (req, res) => {
-  // todo
-});
-
-router.patch("/:id", async (req, res) => {
-  // todo
-});
-
-router.delete("/:id", async (req, res) => {
-  // todo
-});
+router.delete("/:id", deleteCommentById);
 
 module.exports = router;

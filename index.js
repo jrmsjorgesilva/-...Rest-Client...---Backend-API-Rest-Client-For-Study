@@ -9,7 +9,7 @@ const albumsRoute = require("./routes/albumsRoute");
 const postsRoute = require("./routes/postsRoute");
 const commentsRoute = require("./routes/commentsRoute");
 const photosRoute = require("./routes/photosRoute");
-const notFoundRoute = require('./routes/404Route');
+const notFoundRoute = require('./routes/notFoundRoute');
 const indexView = require("./views/js/index");
 
 // server
