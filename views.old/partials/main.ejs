@@ -1,0 +1,27 @@
+<main>
+  <%= mainContent %>
+  <!-- todo form -->
+  <form class="form">
+    <fieldset class="form__control">
+      <label class="form__label" for="name">
+        Seu Nome
+        <input class="form__input" type="text" name="name" value="" />
+      </label>
+      <label class="form__label" for="email">
+        Seu Melhor Email
+        <input class="form__input" type="text" name="email" value="" />
+      </label>
+      <label class="form__label" for="body">
+        Comentário (seja gentil)
+        <textarea
+          rows="6"
+          class="form__input"
+          type="text"
+          name="body"
+          value=""
+        ></textarea>
+      </label>
+      <input class="form__btn" type="submit" role="button" />
+    </fieldset>
+  </form>
+</main>

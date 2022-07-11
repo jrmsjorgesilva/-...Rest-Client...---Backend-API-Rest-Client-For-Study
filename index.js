@@ -9,8 +9,8 @@ const albumsRoute = require("./routes/albumsRoute");
 const postsRoute = require("./routes/postsRoute");
 const commentsRoute = require("./routes/commentsRoute");
 const photosRoute = require("./routes/photosRoute");
-const notFoundRoute = require('./routes/notFoundRoute');
-const indexView = require("./views/js/main");
+const notFoundRoute = require("./routes/notFoundRoute");
+// const indexView = require("./views.old/js/main");
 
 // server
 const server = express();
@@ -20,12 +20,22 @@ const PORT = process.env.PORT || 3000;
 server.use(cors());
 server.use(express.json());
 
-// Views
-server.set("view engine", "ejs");
+// Views OLD ONE
+// server.set("view engine", "ejs");
 
-// indexView
-server.get("/", (req, res) => {
-  res.render("index", indexView);
+// indexView OLD ONE
+// server.get("/", (req, res) => {
+//   res.render("index", indexView);
+// });
+
+server.get("^/$|/index(.html)?", (req, res) => {
+  // res.sendFile('./views/index.html', { root: __dirname });
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
+
+server.get("^/$|/about(.html)?", (req, res) => {
+  // res.sendFile('./views/index.html', { root: __dirname });
+  res.sendFile(path.join(__dirname, 'views', 'pages/about.html'));
 });
 
 // Use
@@ -34,7 +44,7 @@ server.use("/albums", albumsRoute);
 server.use("/posts", postsRoute);
 server.use("/comments", commentsRoute);
 server.use("/photos", photosRoute);
-server.use('', notFoundRoute)
+server.use("", notFoundRoute);
 
 mongooseConnect(server);
 server.listen(PORT, () => console.log(`server is running on the port ${PORT}`));
