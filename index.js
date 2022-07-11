@@ -3,6 +3,7 @@ const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const axios = require("axios");
+const hbs = require('hbs');
 const mongooseConnect = require("./database/mongo.js");
 const personsRoute = require("./routes/personsRoute");
 const albumsRoute = require("./routes/albumsRoute");
@@ -29,18 +30,31 @@ server.use(express.json());
 // });
 
 // Serve Views
-const viewsDirectoryPath = path.join(__dirname, './views');
+const viewsDirectoryPath = path.join(__dirname, "./views");
+const partialsPath = path.join(__dirname, "./views/partials");
+server.set("view engine", "hbs");
+hbs.registerPartials(partialsPath);
 server.use(express.static(viewsDirectoryPath));
 
-server.get("^/$|/index(.html)?", (req, res) => {
-  // res.sendFile('./views/index.html', { root: __dirname });
-  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+server.get("/$|/index(.html)?", (req, res) => {
+  res.render("index", {
+    title: "article title",
+  });
 });
 
 server.get("^/$|/about(.html)?", (req, res) => {
-  // res.sendFile('./views/index.html', { root: __dirname });
-  res.sendFile(path.join(__dirname, 'views', 'pages/about.html'));
+  res.render("./pages/about", {
+    title: "article title",
+  });
 });
+
+// server.get("^/$|/index(.html)?", (req, res) => {
+//   res.sendFile(path.join(__dirname, 'views', 'index.html'));
+// });
+
+// server.get("^/$|/about(.html)?", (req, res) => {
+//   res.sendFile(path.join(__dirname, 'views', 'pages/about.html'));
+// });
 
 // Use
 server.use("/persons", personsRoute);

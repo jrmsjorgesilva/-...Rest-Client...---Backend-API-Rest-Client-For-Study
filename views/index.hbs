@@ -1,9 +1,13 @@
-<html>
+<!DOCTYPE html>
   <head>
     <title>Boilerplate &rarr; JM Softwares</title>
+    <!-- meta  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- link  -->
     <link rel="stylesheet" href="./styles/css/main.css" />
   </head>
   <body>
+    {{> header }}
     <div class="grid">
       <aside class="sidebar">
         <ul class="sidebar__content">
@@ -46,7 +50,7 @@
                 value=""
               ></textarea>
             </label>
-            <button class="form__btn" >
+            <button id="btn" class="form__btn" onclick="formToPost()">
               Enviar &rarr;
             </button>
           </fieldset>
