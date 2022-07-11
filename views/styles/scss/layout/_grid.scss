@@ -1,0 +1,13 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+
+// media queries
+
+@media screen and (max-width: 768px) {
+  .grid {
+    display: block;
+    text-align: center;
+  }
+}

@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const path = require('path');
 
 // Handler 404 for specific route
 router.get("/persons/*", (req, res) => {
@@ -23,7 +24,7 @@ router.get("/albums/*", (req, res) => {
 
 // Handler 404
 router.get("*", (req, res) => {
-  res.send("Página não encontrada");
+  res.status(404).sendFile(path.join( __dirname, '../views', 'pages/404.html'));
 });
 
 module.exports = router;

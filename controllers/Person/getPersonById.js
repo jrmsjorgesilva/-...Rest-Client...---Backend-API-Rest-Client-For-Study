@@ -13,8 +13,7 @@ async function getPersonById(req, res) {
     res.status(200).json(personById);
   } catch (error) {
     console.log("Error ", error);
-    res.status(500).json({ error });
-    throw new Error("Error ", error);
+    return res.status(422).json({ message: `The id ${id} is not on our registries` });
   }
 }
 

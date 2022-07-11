@@ -1,9 +1,54 @@
 <html>
   <head>
     <title>Boilerplate &rarr; JM Softwares</title>
+    <link rel="stylesheet" href="./styles/css/main.css" />
   </head>
   <body>
-    <main>main content</main>
-    <aside>sidebar content</aside>
+    <div class="grid">
+      <aside class="sidebar">
+        <ul class="sidebar__content">
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link"> Persons </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link"> Posts </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link"> Photos </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link"> Comments </a>
+          </li>
+          <li class="sidebar__item">
+            <a href="#" class="sidebar__link"> Albums </a>
+          </li>
+        </ul>
+      </aside>
+      <main class="main">
+        <form class="form">
+          <fieldset class="form__control">
+            <label class="form__label" for="name">
+              Seu Nome
+              <input class="form__input" type="text" name="name" value="" />
+            </label>
+            <label class="form__label" for="email">
+              Seu Melhor Email
+              <input class="form__input" type="text" name="email" value="" />
+            </label>
+            <label class="form__label" for="body">
+              Comentário (seja gentil)
+              <textarea
+                rows="6"
+                class="form__input"
+                type="text"
+                name="body"
+                value=""
+              ></textarea>
+            </label>
+            <input class="form__btn" type="submit" role="button" />
+          </fieldset>
+        </form>
+      </main>
+    </div>
   </body>
 </html>

@@ -28,6 +28,10 @@ server.use(express.json());
 //   res.render("index", indexView);
 // });
 
+// Serve Views
+const viewsDirectoryPath = path.join(__dirname, './views');
+server.use(express.static(viewsDirectoryPath));
+
 server.get("^/$|/index(.html)?", (req, res) => {
   // res.sendFile('./views/index.html', { root: __dirname });
   res.sendFile(path.join(__dirname, 'views', 'index.html'));
