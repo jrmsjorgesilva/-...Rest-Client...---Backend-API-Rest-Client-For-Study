@@ -1,6 +1,12 @@
 const title = "Boilerplate | JM Softwares";
 const mainContent = "Main Content";
-const asideContent = "Sidebar Content";
+const asideContent = [
+  "Persons",
+  "Posts",
+  "Comments",
+  "Photos",
+  "Albums",
+];
 const SEO = {
   ogImage: "image.jpg",
   content: "content",

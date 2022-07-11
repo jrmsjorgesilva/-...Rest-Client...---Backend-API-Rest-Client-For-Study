@@ -10,7 +10,7 @@ const postsRoute = require("./routes/postsRoute");
 const commentsRoute = require("./routes/commentsRoute");
 const photosRoute = require("./routes/photosRoute");
 const notFoundRoute = require('./routes/notFoundRoute');
-const indexView = require("./views/js/index");
+const indexView = require("./views/js/main");
 
 // server
 const server = express();
