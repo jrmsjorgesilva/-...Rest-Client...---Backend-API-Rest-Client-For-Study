@@ -44,6 +44,7 @@ server.use(express.static(viewsDirectoryPath));
 server.get("/$|/index(.html)?", (req, res) => {
   res.render("index", {
     title: "article title",
+    clientId: process.env.PAYPAL_CLIENT_ID
   });
 });
 
