@@ -10,7 +10,6 @@ const getFullUrl = (req) => {
 
 // main
 async function mercadoPagoCheckout(req, res) {
-  console.log(process.env);
   MercadoPago.configure({
     sandbox: process.env.SANDBOX == "true" ? true : false,
     access_token: process.env.MERCADOPAGO_ACCESS_TOKEN,
@@ -36,16 +35,16 @@ async function mercadoPagoCheckout(req, res) {
     auto_return: "all",
     external_reference: id,
     back_urls: {
-      success: getFullUrl(req) + "/payments/success",
-      pending: getFullUrl(req) + "/payments/pending",
-      failure: getFullUrl(req) + "/payments/failure",
+      success: getFullUrl(req) + "/mercadopago/success",
+      pending: getFullUrl(req) + "/mercadopago/pending",
+      failure: getFullUrl(req) + "/mercadopago/failure",
     },
   };
 
   //Generate init_point to checkout
   try {
     const preference = await MercadoPago.preferences.create(purchaseOrder);
-    return res.redirect(`${preference.body.init_point}`);
+    return res.status(201).redirect(`${preference.body.init_point}`);
   } catch (err) {
     return res.send(err.message);
   }
