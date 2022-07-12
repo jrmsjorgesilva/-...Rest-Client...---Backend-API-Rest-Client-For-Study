@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const stripe = require('../controllers/payments/stripe');
+const stripeCheckout = require('../controllers/payments/stripeCheckout');
 
-router.post('/', stripe);
+router.post('/', stripeCheckout);
 
 module.exports = router;

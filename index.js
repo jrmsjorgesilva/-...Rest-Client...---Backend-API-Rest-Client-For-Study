@@ -5,7 +5,7 @@ const path = require("path");
 const cors = require("cors");
 const axios = require("axios");
 const hbs = require("hbs");
-const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+// const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY_SECRET);
 // routes
 const mongooseConnect = require("./database/mongo.js");
 const personsRoute = require("./routes/personsRoute");
@@ -13,8 +13,8 @@ const albumsRoute = require("./routes/albumsRoute");
 const postsRoute = require("./routes/postsRoute");
 const commentsRoute = require("./routes/commentsRoute");
 const photosRoute = require("./routes/photosRoute");
-const stripeRoute = require("./routes/stripeRoute");
 const productsRoute = require("./routes/productsRoute");
+const stripeRoute = require("./routes/stripeRoute");
 const notFoundRoute = require("./routes/notFoundRoute");
 //
 
@@ -53,6 +53,18 @@ server.get("^/$|/about(.html)?", (req, res) => {
   });
 });
 
+server.get("^/$|/success(.html)?", (req, res) => {
+  res.render("./pages/success", {
+    title: "article title",
+  });
+});
+
+server.get("^/$|/cancel(.html)?", (req, res) => {
+  res.render("./pages/about", {
+    title: "article title",
+  });
+});
+
 // server.get("^/$|/index(.html)?", (req, res) => {
 //   res.sendFile(path.join(__dirname, 'views', 'index.html'));
 // });
@@ -68,7 +80,7 @@ server.use("/posts", postsRoute);
 server.use("/comments", commentsRoute);
 server.use("/photos", photosRoute);
 server.use("/products", productsRoute);
-server.use("/stripe", stripeRoute);
+server.use("/stripe-checkout", stripeRoute);
 server.use("", notFoundRoute);
 
 mongooseConnect(server);
