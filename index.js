@@ -1,18 +1,22 @@
+// services
 require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
 const axios = require("axios");
-const hbs = require('hbs');
+const hbs = require("hbs");
+const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY);
+// routes
 const mongooseConnect = require("./database/mongo.js");
 const personsRoute = require("./routes/personsRoute");
 const albumsRoute = require("./routes/albumsRoute");
 const postsRoute = require("./routes/postsRoute");
 const commentsRoute = require("./routes/commentsRoute");
 const photosRoute = require("./routes/photosRoute");
-const stripeRoute = require('./routes/stripeRoute');
+const stripeRoute = require("./routes/stripeRoute");
+const productsRoute = require("./routes/productsRoute");
 const notFoundRoute = require("./routes/notFoundRoute");
-// const indexView = require("./views.old/js/main");
+//
 
 // server
 const server = express();
@@ -63,6 +67,7 @@ server.use("/albums", albumsRoute);
 server.use("/posts", postsRoute);
 server.use("/comments", commentsRoute);
 server.use("/photos", photosRoute);
+server.use("/products", productsRoute);
 server.use("/stripe", stripeRoute);
 server.use("", notFoundRoute);
 
