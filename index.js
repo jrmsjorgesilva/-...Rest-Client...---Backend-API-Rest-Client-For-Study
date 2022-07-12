@@ -15,6 +15,7 @@ const commentsRoute = require("./routes/commentsRoute");
 const photosRoute = require("./routes/photosRoute");
 const productsRoute = require("./routes/productsRoute");
 const stripeRoute = require("./routes/stripeRoute");
+const mercadoPagoRoute = require("./routes/mercadoPagoRoute");
 const notFoundRoute = require("./routes/notFoundRoute");
 //
 
@@ -88,6 +89,7 @@ server.use("/comments", commentsRoute);
 server.use("/photos", photosRoute);
 server.use("/products", productsRoute);
 server.use("/stripe-checkout", stripeRoute);
+server.use("/mercadopago", mercadoPagoRoute);
 server.use("", notFoundRoute);
 
 mongooseConnect(server);

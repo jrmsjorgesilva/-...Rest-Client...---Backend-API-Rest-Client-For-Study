@@ -3,7 +3,7 @@ paypal.Buttons({
     style: {
         layout: 'horizontal'
     }
-}).render('#your-container-element');
+}).render('#paypal__btn');
 
 
 // REFERENCE PAGE -> https://developer.paypal.com/demo/checkout/#/pattern/horizontal

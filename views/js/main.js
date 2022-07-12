@@ -1,4 +1,4 @@
-const btnPay = () => {
+const btnPayStripe = () => {
   fetch("/stripe-checkout", {
     method: "POST",
     headers: {
