@@ -66,6 +66,12 @@ server.get("^/$|/cancel(.html)?", (req, res) => {
   });
 });
 
+server.get("^/$|/admin(.html)?", (req, res) => {
+  res.render("./pages/admin", {
+    title: "article title",
+  });
+});
+
 // server.get("^/$|/index(.html)?", (req, res) => {
 //   res.sendFile(path.join(__dirname, 'views', 'index.html'));
 // });
