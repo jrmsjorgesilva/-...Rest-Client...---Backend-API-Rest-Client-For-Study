@@ -49,37 +49,6 @@ body {
   background-color: #fff;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-}
-
-@media screen and (max-width: 768px) {
-  .grid {
-    display: block;
-    text-align: center;
-  }
-}
-.sidebar {
-  padding: 10px;
-  text-align: left;
-}
-.sidebar__link {
-  font-size: 32px;
-  font-weight: bolder;
-  font-family: "Courier New", Courier, monospace;
-  color: blueviolet;
-}
-.sidebar__link:focus, .sidebar__link:hover {
-  opacity: 0.7;
-}
-.sidebar__link:visited, .sidebar__link:active {
-  opacity: 0.3;
-}
-.sidebar__item {
-  margin: 10px 0px;
-}
-
 /*!
  * Start Bootstrap - SB Admin 2 v4.1.3 (https://startbootstrap.com/theme/sb-admin-2)
  * Copyright 2013-2021 Start Bootstrap
@@ -11192,31 +11161,4 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
   width: 100%;
-}
-
-.form__label {
-  display: block;
-  width: 100%;
-  margin: 20px 0px;
-}
-.form__input {
-  display: block;
-  min-width: 400px;
-  padding: 15px 20px;
-  margin: 5px 0px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.form__btn {
-  font-size: 28px;
-  font-weight: 700;
-  padding: 20px 35px;
-  margin: 20px auto;
-  border-radius: 10px;
-  cursor: pointer;
-  color: white;
-  background-color: aqua;
-  text-align: left;
 }/*# sourceMappingURL=main.css.map */

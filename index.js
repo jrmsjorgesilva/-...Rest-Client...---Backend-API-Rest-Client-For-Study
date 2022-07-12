@@ -44,7 +44,7 @@ server.use(express.static(viewsDirectoryPath));
 
 server.get("/$|/index(.html)?", (req, res) => {
   res.render("index", {
-    title: "article title",
+    title: "Dashboard",
     clientId: process.env.PAYPAL_CLIENT_ID
   });
 });
@@ -67,8 +67,26 @@ server.get("^/$|/cancel(.html)?", (req, res) => {
   });
 });
 
-server.get("^/$|/admin(.html)?", (req, res) => {
-  res.render("./pages/admin", {
+server.get("^/$|/forgot-password(.html)?", (req, res) => {
+  res.render("./pages/forgot-password", {
+    title: "article title",
+  });
+});
+
+server.get("^/$|/login(.html)?", (req, res) => {
+  res.render("./pages/login", {
+    title: "article title",
+  });
+});
+
+server.get("^/$|/register(.html)?", (req, res) => {
+  res.render("./pages/register", {
+    title: "article title",
+  });
+});
+
+server.get("^/$|/tables(.html)?", (req, res) => {
+  res.render("./pages/tables", {
     title: "article title",
   });
 });
