@@ -10,6 +10,7 @@ const albumsRoute = require("./routes/albumsRoute");
 const postsRoute = require("./routes/postsRoute");
 const commentsRoute = require("./routes/commentsRoute");
 const photosRoute = require("./routes/photosRoute");
+const stripeRoute = require('./routes/stripeRoute');
 const notFoundRoute = require("./routes/notFoundRoute");
 // const indexView = require("./views.old/js/main");
 
@@ -62,6 +63,7 @@ server.use("/albums", albumsRoute);
 server.use("/posts", postsRoute);
 server.use("/comments", commentsRoute);
 server.use("/photos", photosRoute);
+server.use("/stripe", stripeRoute);
 server.use("", notFoundRoute);
 
 mongooseConnect(server);
