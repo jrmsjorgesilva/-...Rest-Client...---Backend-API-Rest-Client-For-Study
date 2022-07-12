@@ -27,14 +27,6 @@ const PORT = process.env.PORT || 3000;
 server.use(cors());
 server.use(express.json());
 
-// Views OLD ONE
-// server.set("view engine", "ejs");
-
-// indexView OLD ONE
-// server.get("/", (req, res) => {
-//   res.render("index", indexView);
-// });
-
 // Serve Views
 const viewsDirectoryPath = path.join(__dirname, "./views");
 const partialsPath = path.join(__dirname, "./views/partials");
