@@ -26,6 +26,7 @@ const forgotPasswordRoute = require("./routes/pages/forgotPasswordRoute");
 const loginRoute = require("./routes/pages/loginRoute");
 const registerRoute = require("./routes/pages/registerRoute");
 const tablesRoute = require("./routes/pages/tablesRoute");
+const newsRoute = require("./routes/pages/newsRoute");
 
 // server
 const server = express();
@@ -51,6 +52,7 @@ server.use('^/$|/forgot-password(.html)?', forgotPasswordRoute);
 server.use('^/$|/login(.html)?', loginRoute);
 server.use('^/$|/register(.html)?', registerRoute);
 server.use("^/$|/tables(.html)?", tablesRoute);
+server.use("^/$|/news(.html)?", newsRoute);
 
 // Use for api routes
 server.use("/persons", personsRoute);
