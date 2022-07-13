@@ -8,16 +8,24 @@ const hbs = require("hbs");
 // const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY_SECRET);
 // routes
 const mongooseConnect = require("./database/mongo.js");
-const personsRoute = require("./routes/personsRoute");
-const albumsRoute = require("./routes/albumsRoute");
-const postsRoute = require("./routes/postsRoute");
-const commentsRoute = require("./routes/commentsRoute");
-const photosRoute = require("./routes/photosRoute");
-const productsRoute = require("./routes/productsRoute");
-const stripeRoute = require("./routes/stripeRoute");
-const mercadoPagoRoute = require("./routes/mercadoPagoRoute");
-const notFoundRoute = require("./routes/notFoundRoute");
-//
+const personsRoute = require("./routes/api/personsRoute");
+const albumsRoute = require("./routes/api/albumsRoute");
+const postsRoute = require("./routes/api/postsRoute");
+const commentsRoute = require("./routes/api/commentsRoute");
+const photosRoute = require("./routes/api/photosRoute");
+const productsRoute = require("./routes/api/productsRoute");
+const stripeRoute = require("./routes/api/stripeRoute");
+const mercadoPagoRoute = require("./routes/api/mercadoPagoRoute");
+const notFoundRoute = require("./routes/api/notFoundRoute");
+// Pages Routes
+const indexRoute = require("./routes/pages/indexRoute");
+const aboutRoute = require("./routes/pages/aboutRoute");
+const successRoute = require("./routes/pages/successRoute");
+const cancelRoute = require("./routes/pages/cancelRoute");
+const forgotPasswordRoute = require("./routes/pages/forgotPasswordRoute");
+const loginRoute = require("./routes/pages/loginRoute");
+const registerRoute = require("./routes/pages/registerRoute");
+const tablesRoute = require("./routes/pages/tablesRoute");
 
 // server
 const server = express();
@@ -34,64 +42,17 @@ server.set("view engine", "hbs");
 hbs.registerPartials(partialsPath);
 server.use(express.static(viewsDirectoryPath));
 
-server.get("/$|/index(.html)?", (req, res) => {
-  res.render("index", {
-    title: "Dashboard",
-    clientId: process.env.PAYPAL_CLIENT_ID
-  });
-});
+// Page Routes
+server.use("/$|/index(.html)?", indexRoute);
+server.use("^/$|/about(.html)?", aboutRoute);
+server.use('^/$|/success(.html)?', successRoute);
+server.use('^/$|/cancel(.html)?', cancelRoute);
+server.use('^/$|/forgot-password(.html)?', forgotPasswordRoute);
+server.use('^/$|/login(.html)?', loginRoute);
+server.use('^/$|/register(.html)?', registerRoute);
+server.use("^/$|/tables(.html)?", tablesRoute);
 
-server.get("^/$|/about(.html)?", (req, res) => {
-  res.render("./pages/about", {
-    title: "article title",
-  });
-});
-
-server.get("^/$|/success(.html)?", (req, res) => {
-  res.render("./pages/success", {
-    title: "article title",
-  });
-});
-
-server.get("^/$|/cancel(.html)?", (req, res) => {
-  res.render("./pages/about", {
-    title: "article title",
-  });
-});
-
-server.get("^/$|/forgot-password(.html)?", (req, res) => {
-  res.render("./pages/forgot-password", {
-    title: "article title",
-  });
-});
-
-server.get("^/$|/login(.html)?", (req, res) => {
-  res.render("./pages/login", {
-    title: "article title",
-  });
-});
-
-server.get("^/$|/register(.html)?", (req, res) => {
-  res.render("./pages/register", {
-    title: "article title",
-  });
-});
-
-server.get("^/$|/tables(.html)?", (req, res) => {
-  res.render("./pages/tables", {
-    title: "article title",
-  });
-});
-
-// server.get("^/$|/index(.html)?", (req, res) => {
-//   res.sendFile(path.join(__dirname, 'views', 'index.html'));
-// });
-
-// server.get("^/$|/about(.html)?", (req, res) => {
-//   res.sendFile(path.join(__dirname, 'views', 'pages/about.html'));
-// });
-
-// Use
+// Use for api routes
 server.use("/persons", personsRoute);
 server.use("/albums", albumsRoute);
 server.use("/posts", postsRoute);

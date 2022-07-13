@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const mercadoPagoCheckout = require('../controllers/payments/mercadoPagoCheckout')
+const mercadoPagoCheckout = require('../../controllers/payments/mercadoPagoCheckout')
 
 router.get('/checkout/:id/:email/:description/:amount', mercadoPagoCheckout)
 

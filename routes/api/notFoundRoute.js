@@ -23,7 +23,7 @@ const path = require('path');
 // });
 
 // Handler 404
-router.get("*", (req, res) => {
+router.get("/*", (req, res) => {
   // res.status(404).sendFile(path.join( __dirname, '../views', 'pages/404.html'));
   res.status(404).render("./pages/404", {
     title: "article title",
