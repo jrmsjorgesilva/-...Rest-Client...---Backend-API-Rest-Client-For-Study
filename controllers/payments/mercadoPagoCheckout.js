@@ -5,6 +5,7 @@ const MercadoPago = require('mercadopago');
 const getFullUrl = (req) => {
   const url = req.protocol + "://" + req.get("host");
   console.log(url);
+  console.log(process.env.MERCADOPAGO_ACCESS_TOKEN)
   return url;
 };
 

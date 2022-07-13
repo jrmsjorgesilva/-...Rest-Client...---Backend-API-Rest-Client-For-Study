@@ -16,6 +16,7 @@ const photosRoute = require("./routes/api/photosRoute");
 const productsRoute = require("./routes/api/productsRoute");
 const stripeRoute = require("./routes/api/stripeRoute");
 const mercadoPagoRoute = require("./routes/api/mercadoPagoRoute");
+const pagSeguroRoute = require('./routes/api/pagSeguroRoute')
 const notFoundRoute = require("./routes/api/notFoundRoute");
 // Pages Routes
 const indexRoute = require("./routes/pages/indexRoute");
@@ -27,6 +28,8 @@ const loginRoute = require("./routes/pages/loginRoute");
 const registerRoute = require("./routes/pages/registerRoute");
 const tablesRoute = require("./routes/pages/tablesRoute");
 const newsRoute = require("./routes/pages/newsRoute");
+// Private Routes
+const seedRoute = require('./routes/private/seedRoute');
 
 // server
 const server = express();
@@ -53,6 +56,7 @@ server.use('^/$|/login(.html)?', loginRoute);
 server.use('^/$|/register(.html)?', registerRoute);
 server.use("^/$|/tables(.html)?", tablesRoute);
 server.use("^/$|/news(.html)?", newsRoute);
+server.use("^/$|/seed(.html)?", seedRoute);
 
 // Use for api routes
 server.use("/persons", personsRoute);
@@ -63,6 +67,7 @@ server.use("/photos", photosRoute);
 server.use("/products", productsRoute);
 server.use("/stripe-checkout", stripeRoute);
 server.use("/mercadopago", mercadoPagoRoute);
+server.use("/pagSeguro", pagSeguroRoute);
 server.use("", notFoundRoute);
 
 mongooseConnect(server);
