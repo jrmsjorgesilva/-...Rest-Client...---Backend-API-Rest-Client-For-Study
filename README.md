@@ -8,7 +8,7 @@
 
 Setup environment variables to your local development
 
-<img src="/views/assets/img/demo/admin_rest_client.png" alt="Demo"/>
+<img src="./views/assets/img/demo_view_rest_client.png" alt="Demo"/>
 
 # Projeto em andamento Tasks a serem implementadas
 
