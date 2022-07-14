@@ -16,6 +16,7 @@ const photosRoute = require("./routes/api/photosRoute");
 const productsRoute = require("./routes/api/productsRoute");
 const stripeRoute = require("./routes/api/stripeRoute");
 const mercadoPagoRoute = require("./routes/api/mercadoPagoRoute");
+const mercadoPagoWebhookRoute = require('./routes/api/mercadoPagoWebhookRoute');
 const pagSeguroRoute = require('./routes/api/pagSeguroRoute')
 const notFoundRoute = require("./routes/api/notFoundRoute");
 // Pages Routes
@@ -67,6 +68,7 @@ server.use("/photos", photosRoute);
 server.use("/products", productsRoute);
 server.use("/stripe-checkout", stripeRoute);
 server.use("/mercadopago", mercadoPagoRoute);
+server.use("/mpwebhook", mercadoPagoWebhookRoute);
 server.use("/pagSeguro", pagSeguroRoute);
 server.use("", notFoundRoute);
 

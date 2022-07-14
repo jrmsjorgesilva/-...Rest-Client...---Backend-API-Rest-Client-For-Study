@@ -1,0 +1,54 @@
+{
+    "items": [
+        {
+            "id": "1234",
+            "title": "Smartphone",
+            "currency_id": "ARS",
+            "picture_url": "pics.com/sf.jpg",
+            "description": "Dispositivo móvil",
+            "category_id": "art",
+            "quantity": 1,
+            "unit_price": 30000
+        }
+    ],
+    "payer": {
+        "name": "Ricardo",
+        "surname": "Alvarez",
+        "email": "ralvarez@email.com",
+        "phone": {
+            "area_code": "11",
+            "number": "22223333"
+        },
+        "identification": {
+            "type": "DNI",
+            "number": "12345678"
+        },
+        "address": {
+            "street_name": "Calle",
+            "street_number": 123,
+            "zip_code": "1111"
+        }
+    },
+    "back_urls": {
+        "success": "myapp.com/success",
+        "failure": "myapp.com/failure",
+        "pending": "myapp.com/pending"
+    },
+    "auto_return": "approved",
+    "payment_methods": {
+        "excluded_payment_methods": [
+            {
+                "id": "amex"
+            }
+        ],
+        "excluded_payment_types": [
+            {
+                "id": "atm"
+            }
+        ],
+        "installments": 6
+    },
+    "notification_url": "myapp.com/webhook",
+    "statement_descriptor": "Tienda eCommerce",
+    "external_reference": "mlplesoj9b"
+}
